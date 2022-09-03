@@ -4,20 +4,15 @@ import axios from "./axios";
 // import requests from "./requests";
 
 function Banner() {
-    const APIKEY = process.env.REACT_APP_API_KEY;
+  const APIKEY = process.env.REACT_APP_API_KEY;
     const [movie, setMovie] = useState([]);
 
-
-    
-  
     useEffect(()=>{
          axios.get(`/trending/all/week?api_key=${APIKEY}&language=en-US`).then(response=>{setMovie(response.data.results[Math.floor((response.data.results.length-1)*Math.random())])
           
         })
             
         },[])
-
-       
 
   return (
     <div>
